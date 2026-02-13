@@ -1,0 +1,127 @@
+.section {
+  padding: 6rem 0;
+  background: var(--background);
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-montserrat);
+}
+
+.subtitle {
+  color: var(--muted-foreground);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.colTitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-montserrat);
+  font-weight: 600;
+}
+
+.problemsCol {
+  position: relative;
+}
+
+.cardInfo {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 2.5rem;
+  border-radius: 1rem;
+}
+
+.problemList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.problemItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--muted-foreground);
+  font-size: 1.05rem;
+}
+
+.problemIcon {
+  color: #ef4444; /* Red 500 */
+  flex-shrink: 0;
+}
+
+.solutionsCol {
+  /* No specific styles needed for container */
+}
+
+.solutionGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.solutionCard {
+  background: var(--card-bg, #1e293b);
+  border: 1px solid var(--primary);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  box-shadow: 0 10px 30px -10px rgba(79, 70, 229, 0.2);
+  transition: transform 0.2s;
+}
+
+.solutionCard:hover {
+  transform: translateY(-5px);
+}
+
+.iconWrapper {
+  background: rgba(79, 70, 229, 0.1);
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  color: var(--primary);
+}
+
+.solutionTitle {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  color: var(--foreground);
+}
+
+.solutionText {
+  font-size: 0.95rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}

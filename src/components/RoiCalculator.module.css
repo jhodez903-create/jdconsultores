@@ -1,0 +1,226 @@
+.section {
+  padding: 6rem 0;
+  background: var(--background);
+}
+
+.container {
+  max-width: 1000px; /* Smaller container for calculator */
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-montserrat);
+}
+
+.subtitle {
+  color: var(--muted-foreground);
+  font-size: 1.1rem;
+}
+
+.calculatorCard {
+  background: var(--card-bg, #1e293b);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.inputs {
+  padding: 2.5rem;
+  background: rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.inputGroup label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--foreground);
+}
+
+.inputWrapper {
+  position: relative;
+}
+
+.inputIcon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-foreground);
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 2.8rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  color: var(--foreground);
+  font-family: var(--font-poppins);
+  font-size: 1rem;
+}
+
+.input:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
+
+.slider {
+  width: 100%;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.packageSelect {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.pkgBtn {
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+  background: var(--background);
+  border: 1px solid var(--border);
+  color: var(--muted-foreground);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: left;
+  font-weight: 500;
+  font-family: var(--font-poppins);
+}
+
+.pkgBtn:hover {
+  border-color: var(--primary);
+}
+
+.activePkg {
+  background: rgba(79, 70, 229, 0.1);
+  border-color: var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.results {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.resultHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.resultHeader h3 {
+  font-family: var(--font-montserrat);
+  font-size: 1.25rem;
+}
+
+.roiBadge {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--secondary);
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-weight: 700;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metric span {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+}
+
+.metric strong {
+  font-size: 1.1rem;
+  color: var(--foreground);
+}
+
+.good {
+  color: var(--secondary) !important;
+}
+
+.divider {
+  grid-column: span 2;
+  height: 1px;
+  background: var(--border);
+  margin: 0.5rem 0;
+}
+
+.neutral {
+  color: var(--accent) !important;
+}
+
+.netResult {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  padding: 1.5rem;
+  border-radius: 1rem;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.netResult span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.finalAmount {
+  font-size: 2rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .calculatorCard {
+    grid-template-columns: 1fr;
+  }
+  
+  .metricsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
