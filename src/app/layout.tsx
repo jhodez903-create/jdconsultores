@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "JD Consultores | Growth Partner",
   description:
     "Ayudamos a empresas a aumentar su facturación mediante estrategias de marketing, sistemas de ventas, IA y persuasión.",
+  icons: {
+    icon: "/logo.ico",
+  },
 };
 
 export default function RootLayout({
