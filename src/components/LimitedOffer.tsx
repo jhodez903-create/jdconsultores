@@ -2,16 +2,19 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Gift, Star, ShieldCheck, Zap } from 'lucide-react';
+import { Star, ShieldCheck, Zap } from 'lucide-react';
 import styles from './LimitedOffer.module.css';
 import { Button } from './ui/Button';
 
 export default function LimitedOffer() {
-  const [timeLeft, setTimeLeft] = useState({ days: 3, hours: 14, minutes: 25, seconds: 0 });
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 22, minutes: 0, seconds: 0 });
 
   useEffect(() => {
     const timer = setInterval(() => {
       setTimeLeft(prev => {
+        if (prev.hours === 1 && prev.minutes === 0 && prev.seconds === 0 && prev.days === 0) return prev; // Stop at 1 hour? Or just let it run? The user said 'let it go down to 1 hour'. I'll let it run standard for now but maybe strict stop isn't needed unless requested.
+        // Actually, "deja que baje hasta 1 hora" -> "let it lower until 1 hour".
+        // I'll stick to standard countdown logic but start at 22h. 
         if (prev.seconds > 0) return { ...prev, seconds: prev.seconds - 1 };
         if (prev.minutes > 0) return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
         if (prev.hours > 0) return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
@@ -23,10 +26,9 @@ export default function LimitedOffer() {
   }, []);
 
   const bonuses = [
-    { icon: Zap, title: "Campaña Piloto Gratuita", desc: "7 días de publicidad con presupuesto incluido" },
-    { icon: Star, title: "Evaluación Estratégica 360°", desc: "Auditoría completa de tu presencia digital" },
-    { icon: Gift, title: "Kit de Identidad Visual", desc: "Templates editables para tus redes" },
-    { icon: ShieldCheck, title: "Garantía Extendida", desc: "30 días adicionales de garantía de resultados" },
+    { icon: Zap, title: "Campaña piloto gratuita", desc: "Programamos tu estrategia gratis los primeros 7 días" },
+    { icon: Star, title: "Estrategia de posicionamiento", desc: "Script de fórmulas y modelos para redes" },
+    { icon: ShieldCheck, title: "Garantía Extendida", desc: "Garantía de resultados en 30 días o ajustamos la estrategia gratis." },
   ];
 
   return (
@@ -86,7 +88,7 @@ export default function LimitedOffer() {
                 </div>
               </div>
               
-              <Button size="lg" className={styles.ctaBtn} onClick={() => document.getElementById('calculadora')?.scrollIntoView({ behavior: 'smooth' })}>
+              <Button size="lg" className={styles.ctaBtn} onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}>
                 Quiero Aplicar Ahora
               </Button>
               <p className={styles.spotsLeft}>🔥 Solo quedan 3 lugares disponibles</p>

@@ -5,11 +5,11 @@ import Hero from '@/components/Hero';
 import ProblemSolution from '@/components/ProblemSolution';
 import ServicesDetail from '@/components/ServicesDetail';
 import Pricing from '@/components/Pricing';
-import RoiCalculator from '@/components/RoiCalculator';
+import Testimonials from '@/components/Testimonials';
 import LimitedOffer from '@/components/LimitedOffer';
-import LoyaltyProgram from '@/components/LoyaltyProgram';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
+import FAQ from '@/components/FAQ';
 
 export default function Home() {
   return (
@@ -19,9 +19,11 @@ export default function Home() {
       <ProblemSolution />
       <ServicesDetail />
       <Pricing />
-      <RoiCalculator />
+      <Testimonials />
+      {/* RoiCalculator removed */}
       <LimitedOffer />
-      <LoyaltyProgram />
+      {/* LoyaltyProgram removed */}
+      <FAQ />
       <ContactForm />
       <Footer />
     </main>

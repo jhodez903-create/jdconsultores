@@ -1,21 +1,21 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { XCircle, CheckCircle, TrendingUp, Users, Target, Zap } from 'lucide-react';
+import { XCircle, TrendingUp, Users, Target, Zap } from 'lucide-react';
 import styles from './ProblemSolution.module.css';
 
 const problems = [
-  { icon: XCircle, text: "Falta de presencia digital consistente" },
-  { icon: XCircle, text: "Inversión en publicidad sin retorno claro (ROI)" },
-  { icon: XCircle, text: "Contenido visual genérico y de baja calidad" },
-  { icon: XCircle, text: "Desconocimiento del cliente ideal" },
+  { icon: XCircle, text: "Contenido digital genérico y de baja calidad" },
+  { icon: XCircle, text: "Inversión en publicidad sin retorno claro" },
+  { icon: XCircle, text: "Estrategias de promoción inefectivas" },
+  { icon: XCircle, text: "Ausencia de sistemas de ventas" },
 ];
 
 const solutions = [
-  { icon: TrendingUp, title: "Estrategia constante", text: "Plan de contenidos y presencia que posiciona tu marca." },
-  { icon: Target, title: "Publicidad con ROI", text: "Campañas optimizadas enfocadas en conversión y ventas." },
+  { icon: TrendingUp, title: "Estrategia constante", text: "Plan de contenido y ofertas irresistibles que atraigan clientes potenciales." },
+  { icon: Target, title: "Publicidad con ROI", text: "Campañas de publicidad enfocadas en conversión y ventas." },
   { icon: Zap, title: "Contenido Premium", text: "Narrativa visual de alto impacto que conecta emocionalmente." },
-  { icon: Users, title: "Cliente Ideal", text: "Investigación profunda para llegar a quien realmente compra." },
+  { icon: Users, title: "Sistema de ventas integrado", text: "Diseñar un sistema que sea capaz de guiar a tu cliente en todo el proceso." },
 ];
 
 export default function ProblemSolution() {

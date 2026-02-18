@@ -1,28 +1,53 @@
 .section {
   padding: 6rem 0;
-  background: var(--card-bg, #0f172a);
+  background-color: var(--background);
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 1.5rem;
 }
 
 .header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .title {
   font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  font-family: var(--font-montserrat);
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
+  font-size: 1.125rem;
   color: var(--muted-foreground);
-  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.servicesCol {
+  width: 100%;
+}
+
+.chartCol {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .accordion {
@@ -32,11 +57,16 @@
 }
 
 .item {
-  background: var(--background);
   border: 1px solid var(--border);
   border-radius: 1rem;
   overflow: hidden;
-  transition: all 0.2s;
+  background: var(--card);
+  transition: all 0.3s ease;
+}
+
+.item:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .trigger {
@@ -44,16 +74,12 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.5rem;
-  background: transparent;
+  padding: 1.25rem;
+  background: none;
   border: none;
   cursor: pointer;
-  text-align: left;
   color: var(--foreground);
-}
-
-.trigger:hover {
-  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.2s ease;
 }
 
 .triggerContent {
@@ -63,29 +89,34 @@
 }
 
 .iconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--primary-rgb), 0.1);
   color: var(--primary);
-  background: rgba(99, 102, 241, 0.1);
-  padding: 0.5rem;
-  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.trigger:hover .iconWrapper,
+.active .iconWrapper {
+  transform: scale(1.1);
 }
 
 .serviceTitle {
   font-weight: 600;
-  font-size: 1.1rem;
-  font-family: var(--font-poppins);
+  font-size: 1.125rem;
 }
 
 .arrow {
-  color: var(--muted-foreground);
   transition: transform 0.3s ease;
+  color: var(--muted-foreground);
 }
 
 .rotate {
   transform: rotate(180deg);
-}
-
-.active .serviceTitle {
-  color: var(--primary);
 }
 
 .contentWrapper {
@@ -93,24 +124,129 @@
 }
 
 .content {
-  padding: 0 1.5rem 1.5rem 1.5rem;
-  padding-left: 4.5rem; /* Align with title */
+  padding: 0 1.25rem 1.25rem 4.75rem;
+  color: var(--muted-foreground);
 }
 
 .list {
-  list-style: disc;
-  padding-left: 1rem;
-  color: var(--muted-foreground);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .list li {
-  margin-bottom: 0.5rem;
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: 0.95rem;
 }
 
-@media (max-width: 640px) {
-  .content {
-    padding-left: 1.5rem;
+.list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Chart Styles */
+.chartCard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.chartTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--foreground);
+}
+
+.pieContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.pieChart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.innerCircle {
+  width: 140px;
+  height: 140px;
+  background: var(--card);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.totalLabel {
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--foreground) 0%, var(--primary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.totalText {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+}
+
+.legendColor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .servicesCol {
+    order: 2;
+  }
+  
+  .chartCol {
+    order: 1;
+    margin-bottom: 2rem;
   }
 }

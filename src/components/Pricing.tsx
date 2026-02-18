@@ -45,6 +45,7 @@ export default function Pricing() {
                   <div className={styles.commission}>
                     + {pkg.commission}% de comisión
                   </div>
+
                 </div>
               </div>
 
@@ -61,7 +62,7 @@ export default function Pricing() {
                 <Button 
                   variant={pkg.recommended ? 'primary' : 'outline'} 
                   className="w-full"
-                  onClick={() => document.getElementById('calculadora')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => window.open(pkg.link, '_blank')}
                 >
                   Empezar Ahora
                 </Button>

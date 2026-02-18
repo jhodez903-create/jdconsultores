@@ -20,9 +20,10 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus('submitting');
     
-    // Simulate API call
+    // Simulate API call and redirect
     setTimeout(() => {
       setStatus('success');
+      window.open('https://wa.link/sjjhpq', '_blank');
       setFormData({ name: '', email: '', company: '', revenue: '', message: '' });
     }, 1500);
   };

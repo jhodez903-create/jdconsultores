@@ -47,7 +47,7 @@
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.3);
   border-color: var(--primary);
 }
 
@@ -166,6 +166,8 @@
   font-size: 0.8rem;
   color: var(--muted-foreground);
 }
+
+
 
 @media (max-width: 1024px) {
   .recommended {
