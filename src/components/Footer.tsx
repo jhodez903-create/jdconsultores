@@ -31,15 +31,15 @@ export default function Footer() {
             <ul>
               <li>
                 <Mail size={18} />
-                <span>contacto@jdconsultores.com</span>
+                <span>jdconsultoresasociados@gmail.com</span>
               </li>
               <li>
                 <Phone size={18} />
-                <span>+1 (555) 123-4567</span>
+                <span>902113918</span>
               </li>
               <li>
                 <MapPin size={18} />
-                <span>Ciudad de México, México</span>
+                <span>Cajamarca, Perú</span>
               </li>
             </ul>
           </div>
